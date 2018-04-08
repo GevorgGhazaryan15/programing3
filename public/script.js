@@ -6,43 +6,43 @@ var grassArr = [];
 var xotakerArr = [];
 var xotakerQanak = 500;
 var gishatichArr = [];
-var gishatichQanak =20;
+var gishatichQanak = 20;
 var mardArr = [];
-var mardQanak =20;
+var mardQanak = 20;
 var gerMardArr = [];
 
 
 function setup() {
-     for (var y = 0; y < yQanak; y++) {
+    for (var y = 0; y < yQanak; y++) {
         matrix[y] = [];
-         for (var x = 0; x < xQanak; x++) {
-            matrix[y][x] = Math.round(random(0,1));
+        for (var x = 0; x < xQanak; x++) {
+            matrix[y][x] = Math.round(random(0, 1));
         }
-     }
-      
+    }
+
     createCanvas(xQanak * side, yQanak * side);
     background('#acacac');
-    while(xotakerQanak>0){
-        var x= Math.floor(Math.random()*xQanak);
-        var y= Math.floor(Math.random()*yQanak);
-        if( matrix[y][x]== 0){
-            matrix[y][x]=2;
+    while (xotakerQanak > 0) {
+        var x = Math.floor(Math.random() * xQanak);
+        var y = Math.floor(Math.random() * yQanak);
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 2;
             xotakerQanak--;
         }
     }
-    while(gishatichQanak>0){
-        var x= Math.floor(Math.random()*xQanak);
-        var y= Math.floor(Math.random()*yQanak);
-        if( matrix[y][x]== 0){
-            matrix[y][x]=3;
+    while (gishatichQanak > 0) {
+        var x = Math.floor(Math.random() * xQanak);
+        var y = Math.floor(Math.random() * yQanak);
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 3;
             gishatichQanak--;
         }
     }
-    while(mardQanak>0){
-        var x= Math.floor(Math.random()*xQanak);
-        var y= Math.floor(Math.random()*yQanak);
-        if( matrix[y][x]== 0){
-            matrix[y][x]=4;
+    while (mardQanak > 0) {
+        var x = Math.floor(Math.random() * xQanak);
+        var y = Math.floor(Math.random() * yQanak);
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 4;
             mardQanak--;
         }
     }
@@ -100,7 +100,7 @@ function setup() {
 
 function draw() {
     frameRate(100);
-     
+
 
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
@@ -131,44 +131,28 @@ function draw() {
             }
         }
     }
-  
+
     for (var i in grassArr) {
         grassArr[i].bazmanal();
     }
     for (var i in xotakerArr) {
         xotakerArr[i].utel();
-    }
-    for (var i in xotakerArr) {
         xotakerArr[i].bazmanal();
-    }
-    for (var i in xotakerArr) {
         xotakerArr[i].mernel();
     }
     for (var i in gishatichArr) {
         gishatichArr[i].utel();
-    }
-    for (var i in gishatichArr) {
         gishatichArr[i].bazmanal();
-    }
-    for (var i in gishatichArr) {
         gishatichArr[i].krvel();
     }
     for (var i in mardArr) {
         mardArr[i].utel();
-    }
-    for (var i in mardArr) {
         mardArr[i].bazmanal();
-    }
-    for (var i in mardArr) {
         mardArr[i].mernel();
-    }
-    for (var i in mardArr) {
         mardArr[i].krvel();
     }
     for (var i in gerMardArr) {
         gerMardArr[i].gerMard();
-    }
-    for (var i in gerMardArr) {
         gerMardArr[i].utel();
     }
 }

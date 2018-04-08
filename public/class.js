@@ -1,4 +1,4 @@
-class Grass {
+class KendaniEak{
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -18,7 +18,6 @@ class Grass {
             [this.x + 1, this.y + 1]
         ];
     }
-
     yntrelVandak(ch) {
         this.stanalNorKordinatner();
         var found = [];
@@ -34,6 +33,8 @@ class Grass {
         }
         return found;
     }
+}
+class Grass extends KendaniEak {
     bazmanal() {
         this.multiply++;
         var norVandak = random(this.yntrelVandak(0));
@@ -46,40 +47,7 @@ class Grass {
         }
     }
 }
-class Xotaker {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.multiply = 0;
-
-    }
-    stanalNorKordinatner() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-
-                if (matrix[y][x] == ch) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
-    }
+class Xotaker extends KendaniEak{
     sharjvel() {
         var patahakanVandakDatark = random(this.yntrelVandak(0));
         if (patahakanVandakDatark) {
@@ -105,6 +73,7 @@ class Xotaker {
             for (var i in grassArr) {
                 if (grassArr[i].x == this.x && grassArr[i].y == this.y) {
                     grassArr.splice(i, 1);
+                    break;
                 }
             }
         }
@@ -129,46 +98,13 @@ class Xotaker {
                 if (xotakerArr[i].x == this.x && xotakerArr[i].y == this.y) {
                     xotakerArr.splice(i, 1);
                     matrix[this.y][this.x] = 0;
+                    break;
                 }
             }
         }
     }
 }
-class Gishatich {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.multiply = 0;
-        this.kriv=0;
-
-    }
-    stanalNorKordinatner() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
-    yntrelVandak(ch) {
-        this.stanalNorKordinatner();
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-
-                if (matrix[y][x] == ch) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
-    }
+class Gishatich extends KendaniEak{
     sharjvel() {
         var patahakanVandakDatark = random(this.yntrelVandak(1));
         if (patahakanVandakDatark) {
@@ -194,6 +130,7 @@ class Gishatich {
             for (var i in xotakerArr) {
                 if (xotakerArr[i].x == this.x && xotakerArr[i].y == this.y) {
                     xotakerArr.splice(i, 1);
+                    break;
                 }
             }
         }
@@ -279,7 +216,7 @@ class Mard {
             matrix[this.y][this.x] = 4;
             this.multiply--;
         }
-        
+
 
     }
 
@@ -296,10 +233,11 @@ class Mard {
             for (var i in xotakerArr) {
                 if (xotakerArr[i].x == this.x && xotakerArr[i].y == this.y) {
                     xotakerArr.splice(i, 1);
+                    break;
                 }
             }
         }
-       
+
         else {
             this.sharjvel();
 
@@ -322,6 +260,7 @@ class Mard {
                 if (mardArr[i].x == this.x && mardArr[i].y == this.y) {
                     mardArr.splice(i, 1);
                     matrix[this.y][this.x] = 0;
+                    break;
                 }
             }
         }
@@ -342,25 +281,25 @@ class GerMard {
         this.y = y;
         this.multiply = 0;
     }
-    gerMard(){
-        if(this.kriv >= 5){
+    gerMard() {
+        if (this.kriv >= 5) {
             for (var i in gishatichArr) {
                 if (gishatichArr[i].x == this.x && gishatichArr[i].y == this.y) {
                     gishatichArr.splice(i, 1);
                     matrix[this.y][this.x] = 5;
-                   
+
                 }
             }
             for (var i in mardArr) {
                 if (mardArr[i].x == this.x && mardArr[i].y == this.y) {
-                   mardArr.splice(i, 1);
+                    mardArr.splice(i, 1);
                     matrix[this.y][this.x] = 5;
-                   
+
                 }
             }
         }
-        }
-    
+    }
+
     stanalNorKordinatner() {
         this.directions = [
             [this.x - 2, this.y - 2],
@@ -428,10 +367,11 @@ class GerMard {
             for (var i in gishatichArr) {
                 if (gishatichArr[i].x == this.x && gishatichArr[i].y == this.y) {
                     gishatichArr.splice(i, 1);
+                    break;
                 }
             }
         }
-       
+
         else {
             this.sharjvel();
 
