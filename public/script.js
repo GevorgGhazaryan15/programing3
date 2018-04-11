@@ -99,7 +99,7 @@ function setup() {
 }
 
 function draw() {
-    frameRate(100);
+    frameRate(25);
 
 
     for (var y = 0; y < matrix.length; y++) {
