@@ -1,10 +1,10 @@
 {
   "name": "programing3",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple scaffolds for heroku deployment https://test-heroku-gol.herokuapp.com/",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,9 +14,13 @@
   "author": "GevorgGhazaryan15",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.3"
   },
   "engines": {
     "node": "4.7.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/markamiraghyan/TUMO_Programming-2-Final-Project/issues"
+  },
+  "homepage": "https://github.com/markamiraghyan/TUMO_Programming-2-Final-Project#readme"
 }
